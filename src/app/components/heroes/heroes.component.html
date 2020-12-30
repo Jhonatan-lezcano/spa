@@ -1,14 +1,20 @@
+
 <h1>Heroes <small>MArvel y DC</small></h1>
 <hr>
 
 <div class="card-columns">
-    <div class="card">
-        <img src="assets/img/aquaman.png" class="card-img-top img-fluid" alt="...">
+    <div class="card animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
+        <img [src]="heroe.img" class="card-img-top img-fluid" [alt]="heroe.nombre">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            <button type="button" class="btn btn-outline-primary btn-block">Ver más...</button>
+            <h5 class="card-title">{{ heroe.nombre }}</h5>
+            <p class="card-text">{{ heroe.bio }}</p>
+            <p class="card-text"><small class="text-muted">{{ heroe.aparicion}}</small></p>
+            
+            <!-- redirrecion con codigo javascript -->
+            <button (click)="verHeroe(i)" type="button" class="btn btn-outline-primary btn-block">Ver más...</button>
+
+            <!-- redireccion con ruterLink -->
+            <!--<a [routerLink]="['/heroe', i]" class="btn btn-outline-primary">Ver más link...</a>-->
         </div>
     </div>
 </div>
